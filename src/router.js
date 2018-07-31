@@ -25,6 +25,7 @@ export default new Router({
       path: '/user/:name',
       name: 'user',
       component: () => import(/* webpackChunkName: "user" */ './views/User.vue'),
+      props: route => ({ name: route.params.name }),
     },
     {
       path: '/settings',
