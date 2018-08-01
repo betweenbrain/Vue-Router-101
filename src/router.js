@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
+import NotFound from './views/404.vue';
 
 Vue.use(Router);
 
@@ -44,6 +45,15 @@ export default new Router({
           },
         },
       ],
+    },
+    {
+      path: '/404',
+      name: 'PageNotFound',
+      component: NotFound,
+    },
+    {
+      path: '*',
+      redirect: '/404',
     },
   ],
 });
