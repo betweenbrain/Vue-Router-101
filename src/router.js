@@ -56,6 +56,14 @@ const router = new Router({
       redirect: '/404',
     },
   ],
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    }
+    if (!savedPosition) {
+      return { x: 0, y: 0 };
+    }
+  },
 });
 
 router.beforeEach((to, from, next) => {
