@@ -5,7 +5,7 @@ import NotFound from './views/404.vue';
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   routes: [
     {
@@ -57,3 +57,15 @@ export default new Router({
     },
   ],
 });
+
+router.beforeEach((to, from, next) => {
+  if ('foo' === 'bar') {
+    return false;
+  }
+  console.log(from);
+  console.log(to);
+
+  next();
+});
+
+export default router;
